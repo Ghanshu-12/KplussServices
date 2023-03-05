@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carry Orders</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<br><p></p><blockquote></blockquote>
+    <center>
+            <form id="form" onsubmit="SendEmail();reset(); return false;">
+                Name : <input type="text" name="name" id="name" placeholder="Enter your name"><br>
+                contact : <input type="number" name="contact" id="contact" placeholder="Enter your contact"><br>
+                Email : <input type="email" name="email" id="email" placeholder="Enter your email"><br>
+                <p>Medicines:</p>
+                <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Enter The Medicines Name"></textarea>
+                <p>Adress:</p>
+                <textarea name="adress" id="adress" cols="31" rows="11" placeholder="Enter Your Adress"></textarea>
+                <button type="submit" class="btn">Send</button>
+
+            </form></center>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+            function SendEmail(){
+                var b="Medicines Require Us.:- "+document.getElementById("msg").value+"\tOur Adress Is :- \n\t"+document.getElementById('adress').value+"\nOur Number Is "+document.getElementById('contact').value+'\n my mail is :- '+document.getElementById('email').value
+                console.log(b)
+                Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "kpluss296@gmail.com",
+                Password : "6D83A420C71EF3210088D1F59078D9FC586F",
+                To : 'Ayushghanshyam57@gmail.com',
+                From : 'kpluss296@gmail.com',
+                Subject : "K+S Services",
+                Body : b
+            }).then(
+            message => alert(message)
+            );
+            }
+        </script>
+</body>
+</html>
